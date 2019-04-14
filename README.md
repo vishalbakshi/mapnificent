@@ -1,6 +1,6 @@
 # 30x30: Visualizing Rapid Network Service
 
-This is the launchpad for the proof of concept established during the SF DataJAM @ Code For America on Saturday, April 13, 2019.
+This is the launchpad for building upon the proof of concept established during the SF DataJAM @ Code For America on Saturday, April 13, 2019.
 
 DataJAM Outcome: <a href="https://docs.google.com/presentation/d/1Pm0a0NYYYtsFItfxuugKelZlJt3Z6Wwoy1wJS2nyM7E/edit?usp=sharing">Google Slides</a>
 
