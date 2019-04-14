@@ -2,6 +2,8 @@
 
 This is the launchpad for the brainstorms and proof of concept established during the SF DataJAM @ Code For America on Saturday, April 13, 2019.
 
+DataJAM Outcome: https://docs.google.com/presentation/d/1Pm0a0NYYYtsFItfxuugKelZlJt3Z6Wwoy1wJS2nyM7E/edit?usp=sharing
+
 ## Brainstorm
 
 The following points oultine the different tasks/features that can be pursued for future development of this project.
