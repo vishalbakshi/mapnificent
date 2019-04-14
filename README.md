@@ -24,38 +24,38 @@ What is the purpose of this tool?
                     - What is the impact of 30x30?
                     - What are the public comments?
 - No matter what tool or feature you develop, first consider:
-        - How is GTFS structured as it exists (static and realtime)
-        - How would GTFS be structured to show future/predictive data
+    - How is GTFS structured as it exists (static and realtime)
+    - How would GTFS be structured to show future/predictive data
 - Potential tasks to explore when adding features
-        - Update the GTFS file, (i.e.remove Rapid routes, remove walking radii, etc.)
-        - Run Mapnificent locally and feed the frontend new data
-            - Refer to: https://github.com/mapnificent/mapnificent_generator
-        - How will this new data (positively or negatively) the success of the 30x30 initiative?
-        - How can we incorporate public feedback?
-            - Example: http://www.letsbikeoakland.com/survey/#/
-        - What are relevant precedents to 30x30 to consider/study?
-                - Van Ness Improvement Project
-                    - https://www.sfmta.com/projects/van-ness-improvement-project
-                - Geary Project
-                    - https://www.sfmta.com/projects/geary-boulevard-improvement-project
-                - Underground M
-                    - https://www.sfmta.com/blog/subway-sfsu-our-plan-take-m-line-down-under
+    - Update the GTFS file, (i.e.remove Rapid routes, remove walking radii, etc.)
+    - Run Mapnificent locally and feed the frontend new data
+        - Refer to: https://github.com/mapnificent/mapnificent_generator
+    - How will this new data (positively or negatively) the success of the 30x30 initiative?
+    - How can we incorporate public feedback?
+        - Example: http://www.letsbikeoakland.com/survey/#/
+    - What are relevant precedents to 30x30 to consider/study?
+        - Van Ness Improvement Project
+            - https://www.sfmta.com/projects/van-ness-improvement-project
+        - Geary Project
+            - https://www.sfmta.com/projects/geary-boulevard-improvement-project
+        - Underground M
+            - https://www.sfmta.com/blog/subway-sfsu-our-plan-take-m-line-down-under
 - Further questions to explore:
-        - What are the impacts of public comments on the feasibility of 30x30 based on their area/neighborhood of interest?
-        - How can we use this data and its visualization to communicate pros/cons of transit changes to those affected by those lines (residents, business, etc.)?
-        - Are there other apps/forms that can plug into this larger visualization tool (this will expand the community input from other sources (in-person discussions, twitter, etc.))
-        - Comparisons of theoretical transit performance vs actual transit performance
-            - What are the discrepancies between the two?
-            - Schedule GTFS vs realtime GTFS
-            - Refer to: https://transitfeeds.com/l/68-san-francisco-ca-usa
-        - How do we toggle 30x30 treatments in the visualization?
+    - What are the impacts of public comments on the feasibility of 30x30 based on their area/neighborhood of interest?
+    - How can we use this data and its visualization to communicate pros/cons of transit changes to those affected by those lines (residents, business, etc.)?
+    - Are there other apps/forms that can plug into this larger visualization tool (this will expand the community input from other sources (in-person discussions, twitter, etc.))
+    - Comparisons of theoretical transit performance vs actual transit performance
+        - What are the discrepancies between the two?
+        - Schedule GTFS vs realtime GTFS
+        - Refer to: https://transitfeeds.com/l/68-san-francisco-ca-usa
+    - How do we toggle 30x30 treatments in the visualization?
         - How can we translate these treatments to existing transit improvement realities/methodologies (SFMTA manual, construction techniques/costs, etc.)
-                - e.g. this route takes 40 minutes, but with 30x30 treatments it takes 20 minutes!
-                - Example: https://www.sfmta.com/projects/muni-forward
-                - TTRP: Travel Time Reduction Proposals
-        - How can the user toggle different modes of transportation in the visualization?
+            - e.g. this route takes 40 minutes, but with 30x30 treatments it takes 20 minutes!
+            - Example: https://www.sfmta.com/projects/muni-forward
+            - TTRP: Travel Time Reduction Proposals
+            - How can the user toggle different modes of transportation in the visualization?
             - MUNI, car, bike, BART, walk
-        - Where/how will these features be built? What data do we have? What data would be needed?
+            - Where/how will these features be built? What data do we have? What data would be needed?
 
 
 
