@@ -17,7 +17,7 @@ The ```_cities``` folder outlines the content (city name, coordinates, cityid, e
 
 Jekyll refers to <a href="https://github.com/vishalbakshi/mapnificent/blob/master/_layouts/city.html">_layouts/city.html</a> for the general layout for a "city" page (i.e. any city that you can click on from the home page).
 
-The configuration of the Jekyll site (<a href="https://github.com/vishalbakshi/mapnificent/blob/master/_config.yml" >which can be seen here</a>) basically says: the **scope** of this website is to convert all files in the **cities** folder and transform them into an html file following "city.html" **layout**.
+The configuration of the Jekyll site (<a href="https://github.com/vishalbakshi/mapnificent/blob/master/_config.yml#L5-L10" >which can be seen here</a>) basically says: the **scope** of this website is to convert all files in the **cities** folder and transform them into an html file following "city.html" **layout**.
 
 The two main snippets of code in this ```city.html``` layout that instantiates the mapnificent object to unlock all the magic is:
 
