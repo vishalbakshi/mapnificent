@@ -30,6 +30,8 @@ What is the purpose of this tool?
     - Update the GTFS file, (i.e.remove Rapid routes, remove walking radii, etc.)
     - Run Mapnificent locally and feed the frontend new data
         - Refer to: https://github.com/mapnificent/mapnificent_generator
+        - **Note: if you are converting the GTFS folder to binary using go, do not convert the GTFS folder to .zip**
+            - ```go run mapnificent.go -d ~/gtfs/ -o bayarea.bin -v```
     - How will this new data (positively or negatively) the success of the 30x30 initiative?
     - How can we incorporate public feedback?
         - Example: http://www.letsbikeoakland.com/survey/#/
