@@ -37,6 +37,9 @@ var city = {
 var mapnificent = new Mapnificent(map, city, {
     baseurl: '{{ site.baseurl }}/'
   });
+  
+// This triggers mapnificent to do all of the things
+mapnificent.init();
 ```
 
 ```Mapnificent``` is a global variable which is exported from their main module ```mapnificent.js``` This is the module which does all the cool stuff like calculate the number of stations + walking radius you can travel from one point to the next in some given time.
