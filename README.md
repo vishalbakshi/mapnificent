@@ -4,6 +4,15 @@ This is the launchpad for the brainstorms and proof of concept established durin
 
 DataJAM Outcome: <a href="https://docs.google.com/presentation/d/1Pm0a0NYYYtsFItfxuugKelZlJt3Z6Wwoy1wJS2nyM7E/edit?usp=sharing">Google Slides</a>
 
+## Resources
+
+- Mapnificent binary generator:https://github.com/mapnificent/mapnificent_generator
+    - **Note: if you are converting the GTFS folder to binary using go, do not convert the GTFS folder to .zip**
+        - ```go run mapnificent.go -d ~/gtfs/ -o bayarea.bin -v```
+- Remix/Partridge (GTFS reader): https://github.com/remix/partridge
+- GTFS data: https://transitfeeds.com/p/sfmta
+- Adding mapnificent cities (in order to understand what goes into Mapnificent's data conversions): https://github.com/mapnificent/mapnificent_cities/tree/6363f4297febcb4e6bfe6544f577833d05e88564
+
 ## Brainstorm
 
 The following points oultine the different tasks/features that can be pursued for future development of this project.
