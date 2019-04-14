@@ -1,6 +1,6 @@
 # 30x30: Visualizing Rapid Network Service
 
-This repo holds information gathered during the SF DataJAM @ Code For America on Saturday, April 13, 2019.
+This is the launchpad for the brainstorms and proof of concept established during the SF DataJAM @ Code For America on Saturday, April 13, 2019.
 
 ## Brainstorm
 
