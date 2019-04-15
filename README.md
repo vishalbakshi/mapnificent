@@ -35,8 +35,17 @@ What is the purpose of this tool?
                     - What is the impact of 30x30?
                     - What are the public comments?
 - No matter what tool or feature you develop, first consider:
-    - How is GTFS structured as it exists (static and realtime)
+    - How is GTFS structured as it exists (static and realtime) (https://developers.google.com/transit/gtfs/#overview-of-a-gtfs-feed)
+        - GTFS is a series if text files (usually collected/moved in a .zip file - mapnificent needs you to unzip the contents before use)
+        - Each file contains a particular aspect of transport information 
+            - agency.txt: a agency is identified by a agency_id
+            - routes.txt: a route is maintained by under an agency (ie: sfmta). a route is identified by a route_id (ie: 1, 5, 5R, 8 etc)
+            - trips.txt:  a route can take multiple trips. a trip is identified by trip_id. a trip is always under one route (ie: 8 towards Fisherman's Warf vs 8 towards City College)
+            - stops.txt: a route stops here during a trip. multiple routes can be at the same stop. a stop is identified by stop_id (stop_times.txt references stops.txt but stops.txt doesn't reference stop_times.txt) (ie: Kearny and Geary, used by multiple routes such as 8, 30, 45; Brannan used by KT, N light rail muni lines)
+            - stop_times.txt: tells us when a trip tops at a stop
+            - shapes.txt: an optional file that describes the path a vehical. multiple rows in shapes help describe one overall vehicle path/shape. This is used by multiple trips and multiple routes  ie: describes a physical path that a vehicle can take) 
     - How would GTFS be structured to show future/predictive data
+        - in order to change a route, one would need to query and add rows to the stop_times.txt, trips.txt, and routes.txt file. With mapnificent's current features, what times a bus reaches a stop would need to be calculated outside of the program.
 - Potential tasks to explore when adding features
     - Update the GTFS file, (i.e.remove Rapid routes, remove walking radii, etc.)
     - Run Mapnificent locally and feed the frontend new data
