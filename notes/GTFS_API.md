@@ -36,7 +36,7 @@ returns the following JSON (the query is limited to 3 records):
 
 ## Version 2
 
-Right now, this version does the following:
+Right now, this version does the following (checked items):
   - [X] Retrieve GTFS files from https://transitfeeds.com/p/sfmta
   - [ ] Upload those files to Firebase Storage (or equivalent)
   - [ ] Download from Firebase Storage and insert data into Google Cloud SQL database
