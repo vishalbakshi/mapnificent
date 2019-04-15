@@ -8,9 +8,9 @@ I've created another repo to test out a NodeJS server that can connect to Cloud 
 
 ## Version 1
 Right now this is barebones as I want to setup a basic environment which does the following:
-  [x] Connects to a Google Cloud SQL database 
-  [x] Serves responses using Express
-  [x] Handles queries to the database and sends JSON responses
+  - [x] Connects to a Google Cloud SQL database 
+  - [x] Serves responses using Express
+  - [x] Handles queries to the database and sends JSON responses
 
 Reference: https://medium.com/@austinhale/building-a-node-api-with-express-and-google-cloud-sql-9bda260b040f
 
