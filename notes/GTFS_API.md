@@ -28,7 +28,7 @@ The test data for this database looks like:
 
 The app is served on port 3306 and has one GET route `/books/:userId`. In the case of userId = 2, the following GET request URL: 
 
-```https://localhost:3306/books/2"```
+```https://localhost:3306/books/2```
 
 returns the following JSON (the query is limited to 3 records):
 
