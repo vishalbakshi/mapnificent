@@ -30,7 +30,7 @@ The app is served on port 3306 and has one GET route `/books/:userId`. In the ca
 
 ```https://localhost:3306/books/2"```
 
-returns the following JSON:
+returns the following JSON (the query is limited to 3 records):
 
 ```[{"id":3,"title":"title0","author":"author0","userId":"2"},{"id":4,"title":"title1","author":"author1","userId":"2"},{"id":5,"title":"title2","author":"author2","userId":"2"}]```
 
