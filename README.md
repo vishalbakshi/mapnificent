@@ -47,6 +47,8 @@ What is the purpose of this tool?
     - How would GTFS be structured to show future/predictive data
         - in order to change a route, one would need to query and add rows to the stop_times.txt, trips.txt, and routes.txt file. With mapnificent's current features, what times a bus reaches a stop would need to be calculated outside of the program.
 - Potential tasks to explore when adding features
+    - Explore ways to integrate existing GTFS tools to Mapnificent
+        - i.e. a GTFS data management tool: https://github.com/WRI-Cities/static-GTFS-manager
     - Update the GTFS file, (i.e.remove Rapid routes, remove walking radii, etc.)
     - Run Mapnificent locally and feed the frontend new data
         - Refer to: https://github.com/mapnificent/mapnificent_generator
