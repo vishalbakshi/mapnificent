@@ -26,7 +26,7 @@ The test data for this database looks like:
 | 6  |  title3 |author3 | 2 |
 
 
-The app is served on port 3306 and has one GET route `'/books/:userId"`. In the case of userId = 2, the following GET request URL: 
+The app is served on port 3306 and has one GET route `/books/:userId`. In the case of userId = 2, the following GET request URL: 
 
 ```https://localhost:3306/books/2"```
 
