@@ -1,9 +1,9 @@
 # GTFS API
 This note file is intended to document the ideas/process for creating a separate server that hosts an api to handle GTFS data requests from the mapnificent app.
 
-I've created another repo to test out a NodeJS server that can connect to Cloud SQL using the mysql driver.
+I've created another repo to test out a NodeJS server that can connect to Cloud SQL using the mysql driver as well as Cloud Storage using the @google-cloud/storage library.
 
-  - https://github.com/vishalbakshi/gtfsapi
+  - https://github.com/vishalbakshi/gtfsapi/tree/version2
 
 
 ## Version 1
