@@ -24,6 +24,8 @@ Here's the current progress on conversions between the different data types:
 ### .zip (or directory) to .bin
   - Mapnificent Generator: https://github.com/vishalbakshi/mapnificent_generator
   - **You can perform the conversion with a single file (magnificent.go)**
+    - https://github.com/vishalbakshi/mapnificent_generator/blob/master/mapnificent.go
+    - `go run mapnificent.go -d <folder containing gtfs files> -o <destination file>`
 
 ### delimited file to Cloud SQL
   - WIP
