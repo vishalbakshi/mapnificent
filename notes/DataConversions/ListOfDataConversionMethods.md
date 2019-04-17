@@ -23,6 +23,7 @@ Here's the current progress on conversions between the different data types:
       
 ### .zip (or directory) to .bin
   - Mapnificent Generator: https://github.com/vishalbakshi/mapnificent_generator
+  - **You can perform the conversion with a single file (magnificent.go)**
 
 ### delimited file to Cloud SQL
   - WIP
