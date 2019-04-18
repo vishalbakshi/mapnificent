@@ -12,6 +12,8 @@ DataJAM Outcome: <a href="https://docs.google.com/presentation/d/1Pm0a0NYYYtsFIt
 - Remix/Partridge (GTFS reader): https://github.com/remix/partridge
 - GTFS data: https://transitfeeds.com/p/sfmta
 - Adding mapnificent cities (in order to understand what goes into Mapnificent's data conversions): https://github.com/mapnificent/mapnificent_cities/tree/6363f4297febcb4e6bfe6544f577833d05e88564
+- Go package that imports GTFS data into memory and web app that allows querying:
+    - https://github.com/mapnificent/gogtfs
 
 ## Brainstorm
 
