@@ -5,6 +5,9 @@ Source: https://developers.google.com/transit/gtfs/reference/#feed-files
 
 ## GTFS Schemas (first draft, based on data files from https://transitfeeds.com/p/sfmta/942/latest/download)
 
+##### Example GTFS files:
+  - trips.txt: https://drive.google.com/open?id=1NhMtBpLQJFoDZzbolneivDD0Baz1sBiR0TIqZTrrWgI
+  - all other .txts: https://drive.google.com/open?id=1KYsMOWhxUVZ9Hm4S9Jqfi1Mra9U6ukwf0mF6TSvHhGE
 ### Tables or Collections
 
 #### AGENCY (from `agency.txt`)
