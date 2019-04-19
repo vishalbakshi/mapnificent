@@ -1,0 +1,129 @@
+# Notes - DataConversions - 20190419 - GTFS Schemas
+
+## Feed Files
+Source: https://developers.google.com/transit/gtfs/reference/#feed-files
+
+## GTFS Schemas (first draft, based on data files from https://transitfeeds.com/p/sfmta/942/latest/download)
+
+### Tables or Collections
+
+#### AGENCY (from `agency.txt`)
+  - `agency_id`: `string` or `CHAR(5)`, unique, optional
+  - `agency_name`: `string`or `CHAR(45)`, required
+  - `agency_url`: `string` or `CHAR(17)`, required
+  - `agency_timezone`: `string` or `CHAR(19)`, required
+  - `agency_lang`: `string` or `CHAR(2)`, optional
+
+#### STOPS (from `stops.txt`)
+  - `stop_id`: `string` or `CHAR(4)`, unique, required
+  - `stop_code`: `string` or `CHAR(5)`, optional
+  - `stop_name`: required
+  - `stop_desc`: optional
+  - `stop_lat`:  required
+  - `stop_lon`: required
+  - `zone_id`: optional
+  - `stop_url`: optional
+  - `location_type`: optional
+  - `parent_station`: optional
+  - `stop_timezone`: optional
+  - `wheelchair_boarding`: optional
+  - `platform_code`: optional
+  
+#### ROUTES (from `routes.txt`)
+  - `route_id`: required
+  - `agency_id`:  optional
+  - `route_short_name`: conditionally required
+  - `route_long_name`: conditionally required
+  - `route_desc`: optional
+  - `route_type`: required
+  - `route_url`: optional
+  - `route_color`: optional
+  - `route_text_color`: optional
+  - `route_sort_order`: optional
+
+#### TRIPS (from `trips.txt`)
+  - `route_id`: required, foreign key (`route_id` in ROUTES)
+  - `service_id`: required, foreign key (`service_id` in CALENDAR or CALENDARDATES)
+  - `trip_id`: required
+  - `trip_headsign`: optional
+  - `trip_short_name`: optional
+  - `direction_id`: optional
+  - 'block_id`: optional
+  - 'shape_id`: optional, foreign key (`shape_id` in SHAPES)
+  - 'wheelchair_accessible`: optional
+  - `bikes_allowed`: optional
+  
+#### STOPTIMES (from `stop_times.txt`)
+  - `trip_id`: required, foreign key (`trip_id` in TRIPS)
+  - `arrival_time`: required
+  - `departure_time`: required
+  - `stop_id`: required, foreign key (`stop_id` in STOPS)
+  - `stop_sequence`: required
+  - `stop_headsign`: optional
+  - `pickup_type`: optional
+  - `drop_off_type`: optional
+  - `shape_dist_traveled`: optional
+  - `timepoint`: optional
+
+#### CALENDAR (from `calendar.txt`)
+  - `service_id`: required
+  - `monday`: required
+  - `tuesday`: required 
+  - `wednesday`: required
+  - `thursday`: required
+  - `friday`: required
+  - `saturday`: required
+  - `sunday`: required
+  - `start_date`: required
+  - `end_date`: required
+
+#### CALENDARDATES (from `calendar_dates.txt`)
+  - `service_id`: required
+  - `date`: required
+  - `exception_type`: required
+
+#### FAREATTRIBUTES (from `fareattributes.txt`)
+  - `fare_id`: required
+  - `price`: required
+  - `currency_type`: required
+  - `payment_method`: required
+  - `transfers`: erquired
+  - `agency_id`: optional
+  - `transfer_duration`: optional
+
+#### FARERULES (from `farerules.txt`)
+  - `fare_id`: required, foreign key (`fare_id` in FAREATTRIBUTES)
+  - `route_id`: optional
+  - `origin_id`: optional
+  - `destination_id`: optional, foreign key (`zone_id` in STOPS)
+  - `contains_id`: optional
+
+#### SHAPES (from `shapes.txt`)
+  - `shape_id`: required
+  - `shape_pt_lat`: required
+  - `shape_pt_lon`: required
+  - `shape_pt_sequence`: required
+  - `shape_dist_traveled`: optional
+ 
+#### FREQUENCIES (from `frequencies.txt`)
+  - `trip_id`: required, foreign key (`trip_id` in TRIPS)
+  - `start_time`: required
+  - `end_time`: required
+  - `headway_secs`: required
+  - `exact_times`: optional
+
+#### TRANSFERS (from `transfers.txt`)
+  - `from_stop_id`: required, foreign key (`stop_id` in STOPS)
+  - `to_stop_id`: required, foreign key (`stop_id` in STOPS)
+  - `transfer_type`: required
+  - `min_transfer_time`: optional
+  
+#### FEEDINFO (from `feed_info.txt`)
+  - `feed_publisher_name`: required
+  - `feed_publisher_url`: required
+  - `feed_lang`: required
+  - `feed_start_date`: optional
+  - `feed_end_date`: optional
+  - `feed_version`: optional
+  - `feed_contact_email`: optional
+  - `feed_contact_url`: optional
