@@ -8,38 +8,38 @@ Source: https://developers.google.com/transit/gtfs/reference/#feed-files
 ### Tables or Collections
 
 #### AGENCY (from `agency.txt`)
-  - `agency_id`: `string` or `CHAR(5)`, unique, optional
-  - `agency_name`: `string`or `CHAR(45)`, required
-  - `agency_url`: `string` or `CHAR(17)`, required
+  - `agency_id`: `string` or `VARCHAR(5)`, unique, optional
+  - `agency_name`: `string`or `VARCHAR(45)`, required
+  - `agency_url`: `string` or `VARCHAR(17)`, required
   - `agency_timezone`: `string` or `CHAR(19)`, required
-  - `agency_lang`: `string` or `CHAR(2)`, optional
+  - `agency_lang`: `string` or `VARCHAR(2)`, optional
 
 #### STOPS (from `stops.txt`)
-  - `stop_id`: `string` or `CHAR(4)`, unique, required
-  - `stop_code`: `string` or `CHAR(5)`, optional
+  - `stop_id`: `string` or `VARCHAR(4)`, unique, required
+  - `stop_code`: `string` or `VARCHAR(5)`, optional
   - `stop_name`: `string` or `VARCHAR(100)`, required
-  - `stop_desc`: `string` or `VARCHAR(255)` ,optional
+  - `stop_desc`: `string` or `VARCHAR(100)` ,optional
   - `stop_lat`:  `double` or `FLOAT(8,6)`, required
   - `stop_lon`: `double` or `FLOAT(9,6)`, required
-  - `zone_id`: `string` or `VARCHAR(255)`, optional
-  - `stop_url`: `string` or `VARCHAR(255)`, optional
-  - `location_type`: `number` or `INT(1)`, optional
-  - `parent_station`: `string` or `VARCHAR(255)`, optional
-  - `stop_timezone`: `string` or `VARCHAR(255)`, optional
-  - `location_type`: `number` or `INT(1)`, optional
-  - `platform_code`: `string` or `VARCHAR(255)`, optional
+  - `zone_id`: `string` or `VARCHAR(100)`, optional
+  - `stop_url`: `string` or `VARCHAR(100)`, optional
+  - `location_type`: `number` or `INT`, optional
+  - `parent_station`: `string` or `VARCHAR(4)`, optional
+  - `stop_timezone`: `string` or `VARCHAR(100)`, optional
+  - `location_type`: `number` or `INT`, optional
+  - `platform_code`: `string` or `VARCHAR(100)`, optional
   
 #### ROUTES (from `routes.txt`)
-  - `route_id`: required
-  - `agency_id`:  optional
-  - `route_short_name`: conditionally required
-  - `route_long_name`: conditionally required
-  - `route_desc`: optional
-  - `route_type`: required
-  - `route_url`: optional
-  - `route_color`: optional
-  - `route_text_color`: optional
-  - `route_sort_order`: optional
+  - `route_id`: `string` or `VARCHAR(5)`, required
+  - `agency_id`:  `string` or `VARCHAR(5)`, optional
+  - `route_short_name`: `string` or `VARCHAR(5)`, conditionally required
+  - `route_long_name`: `string` or `VARCHAR(100)`, conditionally required
+  - `route_desc`: `string` or `VARCHAR(100)`, optional
+  - `route_type`: `number` or `INT`, required
+  - `route_url`: `string` or `VARCHAR(100)`, optional
+  - `route_color`: `string` or `VARCHAR(100)`, optional
+  - `route_text_color`: `string` or `VARCHAR(100)`, optional
+  - `route_sort_order`: `number` or `INT`, optional
 
 #### TRIPS (from `trips.txt`)
   - `route_id`: required, foreign key (`route_id` in ROUTES)
