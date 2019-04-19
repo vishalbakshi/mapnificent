@@ -17,17 +17,17 @@ Source: https://developers.google.com/transit/gtfs/reference/#feed-files
 #### STOPS (from `stops.txt`)
   - `stop_id`: `string` or `CHAR(4)`, unique, required
   - `stop_code`: `string` or `CHAR(5)`, optional
-  - `stop_name`: required
-  - `stop_desc`: optional
-  - `stop_lat`:  required
-  - `stop_lon`: required
-  - `zone_id`: optional
-  - `stop_url`: optional
-  - `location_type`: optional
-  - `parent_station`: optional
-  - `stop_timezone`: optional
-  - `wheelchair_boarding`: optional
-  - `platform_code`: optional
+  - `stop_name`: `string` or `VARCHAR(100)`, required
+  - `stop_desc`: `string` or `VARCHAR(255)` ,optional
+  - `stop_lat`:  `double` or `FLOAT(8,6)`, required
+  - `stop_lon`: `double` or `FLOAT(9,6)`, required
+  - `zone_id`: `string` or `VARCHAR(255)`, optional
+  - `stop_url`: `string` or `VARCHAR(255)`, optional
+  - `location_type`: `number` or `INT(1)`, optional
+  - `parent_station`: `string` or `VARCHAR(255)`, optional
+  - `stop_timezone`: `string` or `VARCHAR(255)`, optional
+  - `location_type`: `number` or `INT(1)`, optional
+  - `platform_code`: `string` or `VARCHAR(255)`, optional
   
 #### ROUTES (from `routes.txt`)
   - `route_id`: required
