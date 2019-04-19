@@ -1,7 +1,14 @@
-# Notes - DataConversions - 20190419 - GTFS Schemas
+# Notes - DataConversions - 20190419 - GTFS Data Subsets
 
-## Feed Files
+## General info onFeed Files
 Source: https://developers.google.com/transit/gtfs/reference/#feed-files
+
+## Subsets
+
+The following screenshots show the resulting renders from different subsets of GTFS data
+### Screenshots
+
+TBD.
 
 ## GTFS Schemas (first draft, based on data files from https://transitfeeds.com/p/sfmta/942/latest/download)
 
