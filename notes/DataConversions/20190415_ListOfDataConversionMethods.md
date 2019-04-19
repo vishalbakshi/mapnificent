@@ -1,4 +1,4 @@
-# Notes - List Of Data Conversion Methods - 20190415
+# Notes - 20190415 - List Of Data Conversion Methods
 
 The purpose of this note is to track the progress/learnings associated with converting data between different file formats and structures.
 
