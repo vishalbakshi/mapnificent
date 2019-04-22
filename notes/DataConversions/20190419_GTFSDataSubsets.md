@@ -3,6 +3,14 @@
 ## General info on Feed Files
 Source: https://developers.google.com/transit/gtfs/reference/#feed-files
 
+## Relevant SQL queries
+  - Create GTFS tables
+    - (still in progress): https://github.com/vishalbakshi/gtfsapi/blob/version2/databaseQueries.js
+  - Import GTFS data into db tables:
+    - WIP
+  - Queries to extract various subsets
+    - WIP
+   
 ## Subsets
 
 The following screenshots show the resulting renders from different subsets of GTFS data
