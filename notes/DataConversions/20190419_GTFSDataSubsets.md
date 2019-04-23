@@ -9,7 +9,7 @@ Source: https://developers.google.com/transit/gtfs/reference/#feed-files
   - Import GTFS data into db tables:
     - Queries/scripts can be found <a href="https://github.com/vishalbakshi/gtfsapi/tree/version2/database_queries">at this repo</a>
   - Queries to extract various subsets
-    - WIP
+    - Reference: https://gist.github.com/akirattii/86e2eda8e110976cce144c991e9cada8
    
 ## Subsets
 
