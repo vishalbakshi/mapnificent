@@ -69,6 +69,7 @@ What is the purpose of this tool?
 - Further questions to explore:
     - What are the impacts of public comments on the feasibility of 30x30 based on their area/neighborhood of interest?
     - How can we use this data and its visualization to communicate pros/cons of transit changes to those affected by those lines (residents, business, etc.)?
+    - Which bus stops are utilized the most? What are the neighborhoods/businesses/demographics around those stops?
     - Are there other apps/forms that can plug into this larger visualization tool (this will expand the community input from other sources (in-person discussions, twitter, etc.))
     - Comparisons of theoretical transit performance vs actual transit performance
         - What are the discrepancies between the two?
