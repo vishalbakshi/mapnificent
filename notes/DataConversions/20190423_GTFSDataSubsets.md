@@ -24,25 +24,25 @@ The following screenshots show the resulting renders from different subsets of G
     - replace existing `bayarea.bin` with new file
     
 #### Stanyan and Fulton: 1 minute walking @ 13 km/s
-<img src="StanyanFulton_1minWalk_5R"/>
+<img src="StanyanFulton_1minWalk_5R.png"/>
 
   - Changes to `_site/static/js/mapnificent.js`:
     - Line 288: `mapWalkTime` set to `1 * 60`
     
 #### Stanyan and Fulton: 3 minute walking @ 13 km/s
-<img src="StanyanFulton_3minWalk_5R"/>
+<img src="StanyanFulton_3minWalk_5R.png"/>
 
   - Changes to `_site/static/js/mapnificent.js`
     - Line 288: `mapWalkTime` set to `3 * 60`
     
 #### Stanyan and Fulton: 5 minute walking @ 13 km/s
-<img src="StanyanFulton_5minWalk_5R"/>
+<img src="StanyanFulton_5minWalk_5R.png"/>
 
   - Changes to `_site/static/js/mapnificent.js`
     - Line 288: `mapWalkTime` set to `5 * 60`
     
 #### Stanyan and Fulton: 15 minute walking @ 13 km/s
-<img src="StanyanFulton_15minWalk_5R"/>
+<img src="StanyanFulton_15minWalk_5R.png"/>
   - Changes to `_site/static/js/mapnificent.js`
     - Line 288: `mapWalkTime` set to `15 * 60`
     
