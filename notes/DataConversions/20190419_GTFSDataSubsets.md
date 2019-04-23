@@ -19,22 +19,25 @@ The following screenshots show the resulting renders from different subsets of G
 
   - Changes to data:
     - All rows except for header and 5R route deleted from routes.txt
-    - `go run mapnificent.go -d "/path/to/gtfs" -o "bayarea.bin"
+    - `go run mapnificent.go -d "/path/to/gtfs" -o "bayarea.bin"`
   - Changes to `_cities/` folder:
     - replace existing `bayarea.bin` with new file
     
 #### Stanyan and Fulton: 1 minute walking @ 13 km/s
 <img src="StanyanFulton_1minWalk_5R"/>
-  - Changes to `_site/static/js/mapnificent.js`
+
+  - Changes to `_site/static/js/mapnificent.js`:
     - Line 288: `mapWalkTime` set to `1 * 60`
     
 #### Stanyan and Fulton: 3 minute walking @ 13 km/s
 <img src="StanyanFulton_3minWalk_5R"/>
+
   - Changes to `_site/static/js/mapnificent.js`
     - Line 288: `mapWalkTime` set to `3 * 60`
     
 #### Stanyan and Fulton: 5 minute walking @ 13 km/s
 <img src="StanyanFulton_5minWalk_5R"/>
+
   - Changes to `_site/static/js/mapnificent.js`
     - Line 288: `mapWalkTime` set to `5 * 60`
     
