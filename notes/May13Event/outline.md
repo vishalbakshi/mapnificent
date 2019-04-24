@@ -7,6 +7,7 @@ Essential Question: What should we present on May 13th?
 ## Idea 1: Slides only
   - In advance of the event, take screenshots of different rendered maps
   - Which routes, stations, walk times would we want to show?
+  - Examples <a href="https://github.com/vishalbakshi/mapnificent/blob/master/notes/DataConversions/20190423_GTFSDataSubsets.md#subsets">here</a>
   
 ## Idea 2: Slides + Local version
   - Modify the existing Mapnificent site:
