@@ -51,8 +51,16 @@ The following screenshots show the resulting renders from different subsets of G
 
 <img src="StanyanFulton_15minWalk_13kmps_5R.png"/>
 
-### Subset 2: TBD
-
+### Subset 2: Rapid Routes Only
+  - Changes to data:
+    - All rows except for header and all Rapid routes (9R, 14R, 5R, 38R, 28R) deleted from routes.txt
+    - `go run mapnificent.go -d "/path/to/gtfs" -o "bayarea.bin"`
+  - Changes to `_cities/` folder:
+    - replace existing `bayarea.bin` with new file
+#### Beale and Market: 5 minutes walking @ a pace of 13 minutes/km
+  - Changes to `_site/static/js/mapnificent.js`
+    - Line 288: `mapWalkTime` set to `5 * 60`
+<img src="BealeMarket_5minWalk_RapidRoutes.png"/>
 
 
 ### Subset 3: TBD
