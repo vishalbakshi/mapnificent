@@ -99,6 +99,7 @@ Install [bower](http://bower.io/) and [jekyll](http://jekyllrb.com/).
     bundle install
 
 Then get the cities data:
+<em>Note: if you want to use your own gtfs bin files, do not run the `git submodule` commands and instead place your .bin files into the appropriate `_cities/` folder</em>
 
     git submodule init
     git submodule update
