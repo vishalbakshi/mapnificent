@@ -5,7 +5,7 @@ Source: https://developers.google.com/transit/gtfs/reference/#feed-files
 
 ## Relevant SQL queries
   - Create GTFS tables
-    - (still in progress): https://github.com/vishalbakshi/gtfsapi/blob/version2/databaseQueries.js
+    - https://github.com/vishalbakshi/gtfsapi/blob/version2/databaseQueries.js
   - Import GTFS data into db tables:
     - Queries/scripts can be found <a href="https://github.com/vishalbakshi/gtfsapi/tree/version2/database_queries">at this repo</a>
   - Queries to extract various subsets
