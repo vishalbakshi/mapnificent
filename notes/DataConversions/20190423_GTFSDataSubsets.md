@@ -15,6 +15,8 @@ Source: https://developers.google.com/transit/gtfs/reference/#feed-files
 
 The following screenshots show the resulting renders from different subsets of GTFS data
 
+The following folder contains .bin files for the different subsets: https://drive.google.com/drive/folders/1S781kpMOQqqse3x8DMkRuDsw-o78RMl5?usp=sharing
+
 ### Subset 1: 5R Route Only
 
   - Changes to data:
