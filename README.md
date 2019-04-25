@@ -1,5 +1,10 @@
 # 30x30: Visualizing Rapid Network Service
 
+# Branch: static-gtfs-subsets
+This has a separate "5R" folder (with 5R route data only) and the Bay Area page has a "5R" link in the navbar that redirects to the "5R" data render. Note that this is not rendering on top of the existing page, but simply switching from the `bayrea` folder to the `5r` folder.
+
+
+
 This is the launchpad for building upon the proof of concept established during the SF DataJAM @ Code For America on Saturday, April 13, 2019.
 
 DataJAM Outcome: <a href="https://docs.google.com/presentation/d/1Pm0a0NYYYtsFItfxuugKelZlJt3Z6Wwoy1wJS2nyM7E/edit?usp=sharing">Google Slides</a>
