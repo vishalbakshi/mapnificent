@@ -1,7 +1,7 @@
 # 30x30: Visualizing Rapid Network Service
 
 # Branch: static-gtfs-subsets
-This has a separate "5R" folder (with 5R route data only) and the Bay Area page has a "5R" link in the navbar that redirects to the "5R" data render. Note that this is not rendering on top of the existing page, but simply switching from the `bayrea` folder to the `5r` folder.
+This branch has a separate "5R" folder (in the `_layouts` folder) which contains a pre-made .bin file using only 5R route info. The Bay Area page has a "5R" link in the navbar that redirects to the "5R" data render. Note that this is not rendering on top of the existing page, but simply switching from the `bayrea` page to the `5r` page. This branch also includes a  "5R" button on the home page, similar to the other cities.
 
 
 
