@@ -28,9 +28,16 @@ layout: base
         <li>
           <a href="{{ site.baseurl }}/">More Cities</a>
         </li>
-        <li>
-          <a href="http://127.0.0.1:4000/5r/#13/37.7782/-122.4417/900/37.7827/-122.4145">5R</a>
-        </li>
+        <li><input type="checkbox" value="14293" name="5R" class="route-checkbox"/>
+              <label for="5R">5R</label></li>
+        <li></li><input type="checkbox" value="14301" name="9R" class="route-checkbox"/>
+              <label for="9R">9R</label></li>
+        <li></li><input type="checkbox" value="14305" name="14R" class="route-checkbox"/>
+              <label for="14R">14R</label></li>
+        <li></li><input type="checkbox" value="14330" name="38R" class="route-checkbox"/>
+              <label for="38R">38R</label></li>
+        <li></li><input type="checkbox" value="14316" name="28R" class="route-checkbox"/>
+              <label for="28R">28R</label></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
@@ -128,6 +135,29 @@ $(function(){
 
   var mapnificent = new Mapnificent(map, city, {
     baseurl: '{{ site.baseurl }}/'
+  });
+
+    
+
+    let routes = [];
+
+  $('.route-checkbox').change(function(){
+    if ($(this).is(':checked')) {
+      routes.push($(this)[0].value);
+      console.log(routes)
+    } else {
+      let routeIdx = routes.indexOf($(this)[0].value);
+      routes.splice(routeIdx,1);
+      console.log(routes)
+    };
+    
+    mapnificent.prepareData(window.staticData, routes);
+    mapnificent.redraw();
+    
+    mapnificent.positions.forEach(function(pos){
+      pos.startCalculation();
+    });
+    
   });
 
   mapnificent.init();

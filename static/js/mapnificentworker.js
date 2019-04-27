@@ -2,7 +2,6 @@
 
 importScripts('quadtree.js');
 var mapnificentPoster;
-
 var mapnificentWorker = (function(undefined) {
   'use strict';
   var calculateTimes = function(nextStations, lines, secondsPerM, maxWalkTime, debug) {
