@@ -18,8 +18,8 @@ The following sections show where code was added/updated and why it was done so:
 - <a href="https://github.com/vishalbakshi/mapnificent/blob/static-gtfs-subsets/_layouts/city.html#L142-L161">Lines 142-161 in the script block</a>
 
     - what it does:
-        - listens to changes in the checkbox state (checked/unchecked) and the loaded data (`window.staticData`)
-        - calls `prepareData` with an array of selected route IDs
+        - listens to changes in the checkbox state (checked/unchecked) 
+        - calls `prepareData` with and the loaded data (`window.staticData`) and the array of selected route IDs
         - calls `startCalculation` on each `MapnificentPosition` object
     - why it was added:
         - this filters the data used by the app based on user selections
