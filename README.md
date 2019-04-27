@@ -32,14 +32,14 @@ The following sections show where code was added/updated and why it was done so:
         - I have called `this.triggerHashUpdate()`, which resets the URL of the map based on the new filtered data.
     
     - why it was added:
-        - Without this line, upon clicking one of the route selection checkboxes, the map would move to the top left corner of the screen.
+        - Without this line, upon clicking a route selection checkbox, the map would automatically move to the top left corner of the screen.
 
 - <a href="https://github.com/vishalbakshi/mapnificent/blob/static-gtfs-subsets/static/js/mapnificent.js#L463-L470">Lines 463-470 in the `Mapnificent.prototype.prepareData` definition</a>
 
     - what it does:
         - filters the collection of Lines (routes) based on which checkboxes are selected by the use
     - why it was added:
-        - In order to view regions of reachable distance for specific routes based on user selections
+        - In order to view isochrones for specific routes based on user selections
 - <a href="https://github.com/vishalbakshi/mapnificent/blob/static-gtfs-subsets/static/js/mapnificent.js#L304">Line 304 in `Mapnificent.prototype.init` definition</a>
 
     - what it does:
