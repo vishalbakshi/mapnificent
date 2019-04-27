@@ -19,7 +19,7 @@ The following sections show where code was added/updated and why it was done so:
 
     - what it does:
         - listens to changes in the checkbox state (checked/unchecked) 
-        - calls `prepareData` with and the loaded data (`window.staticData`) and the array of selected route IDs
+        - calls `Mapnificent.prepareData` with the loaded data (`window.staticData`) and the array of selected route IDs
         - calls `startCalculation` on each `MapnificentPosition` object
     - why it was added:
         - this filters the data used by the app based on user selections
