@@ -3,7 +3,7 @@ This branch filters the static schedule data on the frontend.
 
 Example:
 
-<img src="20190426.gif"/>
+<img src="./20190426A.gif"/>
 
 
 The following sections show where code was added/updated and why it was done so:
