@@ -1,8 +1,6 @@
 # Branch: static-gtfs-subsets
 This branch filters the static schedule data on the frontend. The page starts out showing only the walking isochrone. 
 
-This is still a bit glitchy, for example, the time selected randomly changed to 31 minutes after clicking the "28R" checkbox.
-
 Example:
 
 <img src="./20190426B.gif"/>
