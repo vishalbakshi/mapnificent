@@ -21,7 +21,7 @@
     this.latlng = latlng;
     this.stationMap = null;
     this.progress = 0;
-    this.time = time === undefined ? 15 * 60 : time;
+    this.time = 30 * 60; // time === undefined ? 15 * 60 : time;
     this.init();
   }
   
@@ -32,9 +32,12 @@
       draggable: true,
       opacity: 0.5
     });
+
+    
     this.popup = new L.Popup({
-      minWidth: 200
+      minWidth: 20
     });
+    
     this.marker
       .bindPopup(this.popup)
       .addTo(this.mapnificent.map);
@@ -93,7 +96,9 @@
     var div = $('<div class="position-control">'), self = this;
     var percent = 0;
     var progressBar = getProgressBar(percent);
-    div.append(progressBar);
+    // Do not show progress bar on popup
+
+    // div.append(progressBar);
     var removeSpan = $('<span class="position-remove glyphicon glyphicon-trash pull-right">').on('click', function(){
       self.mapnificent.removePosition(self);
     });
@@ -117,6 +122,8 @@
   
     var minutesTime = Math.round(this.time / 60);
   
+  
+    /*
     var input = $('<input type="range">').attr({
       max: Math.round(this.mapnificent.settings.options.maxWalkTravelTime / 60),
       min: 0,
@@ -129,14 +136,17 @@
         self.setTime(parseInt($(this).val()) * 60);
       }
     });
+    */
+
+
+    //div.append(input);
   
-    div.append(input);
-  
+    /*
     var timeSpan = $('<div class="pull-left">' +
       '<span class="glyphicon glyphicon-time"></span> ' +
        '<span class="time-display">' + minutesTime + ' min</span></div>');
     div.append(timeSpan);
-  
+    */
     var removeSpan = $('<span class="position-remove glyphicon glyphicon-trash pull-right">').on('click', function(){
       self.mapnificent.removePosition(self);
     });
@@ -145,6 +155,7 @@
   
     this.popup.setContent(div[0]);
   };
+  
   
   MapnificentPosition.prototype.createWorker = function(){
     if (this.webworker) {
