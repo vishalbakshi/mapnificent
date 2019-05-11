@@ -559,10 +559,14 @@
       ctx.fillStyle = 'rgba(50,50,50,0.4)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
   
-      ctx.globalCompositeOperation = 'destination-out';
-      ctx.fillStyle = 'rgba(0,0,0,1)';
+      ctx.globalCompositeOperation = 'source-atop';
+      
   
+      // Change color for the routes
+      console.log(window.routeFill);
+      ctx.fillStyle = window.routeFill;
       for (var i = 0; i < self.positions.length; i += 1) {
+        
         var drawStations = self.positions[i].getReachableStations(stationsAround, start, tileSize);
         for (var j = 0; j < drawStations.length; j += 1) {
           ctx.beginPath();

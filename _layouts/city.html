@@ -138,9 +138,9 @@ $(function(){
   });
 
     
-
+    // add local routes to the array
     let routes = [];
-
+  window.routeFill = 'rgba(150,50,50,1)';
   $('.route-checkbox').change(function(){
     if ($(this).is(':checked')) {
       routes.push($(this)[0].value);
@@ -151,8 +151,9 @@ $(function(){
       console.log(routes)
     };
     
+    window.routeFill = 'rgba(50,150,50,1)';
     mapnificent.prepareData(window.staticData, routes);
-    mapnificent.redraw();
+    //mapnificent.redraw();
     
     mapnificent.positions.forEach(function(pos){
       pos.startCalculation();
@@ -160,6 +161,7 @@ $(function(){
     
   });
 
+  // start out with all local routes
   mapnificent.init();
 });
 
