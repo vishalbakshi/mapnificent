@@ -4,7 +4,7 @@ The MVP for a May 13th presentation is available at: <a href="https://sftrembed.
 
 Example:
 
-<img src="./20190513D.gif"/>
+<img src="./20190513C.gif"/>
 
 
 The following sections show where code was added/updated and why it was done so:
