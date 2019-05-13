@@ -140,20 +140,23 @@ $(function(){
     
     // add local routes to the array
     let routes = [];
-  window.routeFill = 'rgba(150,50,50,1)';
+    window.checkedRoutes = [];
   $('.route-checkbox').change(function(){
+
+    
+
     if ($(this).is(':checked')) {
       routes.push($(this)[0].value);
-      console.log(routes)
+      window.checkedRoutes = routes;
     } else {
       let routeIdx = routes.indexOf($(this)[0].value);
       routes.splice(routeIdx,1);
-      console.log(routes)
+      window.checkedRoutes = routes;
     };
     
-    window.routeFill = 'rgba(50,150,50,1)';
+    
     mapnificent.prepareData(window.staticData, routes);
-    //mapnificent.redraw();
+    mapnificent.redraw();
     
     mapnificent.positions.forEach(function(pos){
       pos.startCalculation();

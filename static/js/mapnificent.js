@@ -122,7 +122,7 @@
   
     var minutesTime = Math.round(this.time / 60);
   
-  
+    // REMOVE POSITION CONTROL POPUP
     /*
     var input = $('<input type="range">').attr({
       max: Math.round(this.mapnificent.settings.options.maxWalkTravelTime / 60),
@@ -141,6 +141,7 @@
 
     //div.append(input);
   
+    // REMOVE TIME DISPLAY
     /*
     var timeSpan = $('<div class="pull-left">' +
       '<span class="glyphicon glyphicon-time"></span> ' +
@@ -245,6 +246,7 @@
           y + radius < 0 || y - radius > tileSize) {
         return null;
       }
+
       return {x: x, y: y, r: radius};
     };
   
@@ -267,7 +269,17 @@
       }
   
       station = convert(stationsAround[i], stationTime);
+      
       if (station !== null) {
+
+        // ADD ARRAY OF ROUTES TO STATION OBJ
+        let stationRoutes = [];
+        stationsAround[i].TravelOptions.forEach(function(stopObject) {
+          if (stopObject.Line) stationRoutes.push(stopObject.Line);
+        });
+        
+        station.routes = stationRoutes;
+
         stations.push(station);
       }
     }
@@ -468,11 +480,31 @@
       nwlng = Math.min(nwlng, this.stationList[i].lng);
     }
   
+    let localRoutes = [
+      '14347', '14346', '14345', '14344', '14343', '14323', '14341', '14340',
+      '14322', '14321', '14349', '14348', '14303', '14302', '14300', '14307', 
+      '14306', '14304', '14361', '14360', '14309', '14308', '14329', '14328', 
+      '14363', '14342', '14313', '14362', '14539', '14317', '14364', '14291',
+      '14290', '14292', '14295', '14294', '14297', '14296', '14299', '14298', 
+      '14366', '14287', '14350', '14351', '14353', '14354', '14355', '14357',
+      '14359', '14336', '14337', '14334', '14335', '14332', '14333', '14331', 
+      '14314', '14315', '14371', '14310', '14311', '14374', '14339', '14338', 
+      '14325', '14370', '14324', '14312', '14320', '14367', '14327', '14369', 
+      '14326', '14368', '14318','14288', '14289', '14319'
+    ]
     for (i = 0; i < data.Lines.length; i += 1) {
+
       if (!data.Lines[i].LineTimes[0]) { continue; }
+
+      if (localRoutes.includes(data.Lines[i].LineId.split("|")[1])) {
+        this.lines[data.Lines[i].LineId] = this.getLineTimesByInterval(data.Lines[i].LineTimes);
+  
+        if (this.settings.debug) {
+          this.lineNames[data.Lines[i].LineId] = data.Lines[i].Name;
+        }
+      }
   
       if (routes && routes.includes(data.Lines[i].LineId.split("|")[1])) {
-        console.log('yes it does')
         this.lines[data.Lines[i].LineId] = this.getLineTimesByInterval(data.Lines[i].LineTimes);
   
         if (this.settings.debug) {
@@ -556,15 +588,26 @@
       var stationsAround = self.quadtree.searchInRadius(latlng.lat, latlng.lng, searchRadius);
   
       ctx.globalCompositeOperation = 'source-over';
-      ctx.fillStyle = 'rgba(50,50,50,0.4)';
+      ctx.fillStyle = 'rgba(225,225,225,0.4)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
   
       ctx.globalCompositeOperation = 'source-atop';
+      ctx.fillStyle = 'rgba(50,150,50,0.1)';
+
+      let localRoutes = [
+        '14347', '14346', '14345', '14344', '14343', '14323', '14341', '14340',
+        '14322', '14321', '14349', '14348', '14303', '14302', '14300', '14307', 
+        '14306', '14304', '14361', '14360', '14309', '14308', '14329', '14328', 
+        '14363', '14342', '14313', '14362', '14539', '14317', '14364', '14291',
+        '14290', '14292', '14295', '14294', '14297', '14296', '14299', '14298', 
+        '14366', '14287', '14350', '14351', '14353', '14354', '14355', '14357',
+        '14359', '14336', '14337', '14334', '14335', '14332', '14333', '14331', 
+        '14314', '14315', '14371', '14310', '14311', '14374', '14339', '14338', 
+        '14325', '14370', '14324', '14312', '14320', '14367', '14327', '14369', 
+        '14326', '14368', '14318','14288', '14289', '14319'
+      ];
+
       
-  
-      // Change color for the routes
-      console.log(window.routeFill);
-      ctx.fillStyle = window.routeFill;
       for (var i = 0; i < self.positions.length; i += 1) {
         
         var drawStations = self.positions[i].getReachableStations(stationsAround, start, tileSize);
@@ -572,11 +615,36 @@
           ctx.beginPath();
           ctx.arc(drawStations[j].x, drawStations[j].y,
                   drawStations[j].r, 0, 2 * Math.PI, false);
-          ctx.fill();
-        }
+
+          if (!drawStations[j].routes) {
+            ctx.fillStyle = 'rgba(225,225,225,0.1)';
+            ctx.fill();
+          } else {             
+            // If drawStation[j] is on a local route, assign a different color
+            drawStations[j].routes.forEach(function(stationRoute){
+              if (localRoutes.includes(stationRoute.split("|")[1])) {
+                ctx.globalCompositeOperation = 'source-atop';
+                ctx.fillStyle = 'rgba(50,150,50,0.05)';
+                ctx.fill();
+              };
+            });
+
+            window.checkedRoutes.forEach(function(route) {
+              // If drawStation[j] is only on rapid route, assign different color
+              drawStations[j].routes.forEach(function(stationRoute){
+                if (stationRoute.split("|")[1] == route) {
+                  ctx.globalCompositeOperation = 'source-atop';
+                  ctx.fillStyle = 'rgba(50,150,50,1.0)';
+                  ctx.fill();
+                };
+              }); 
+            }); 
+          }
+          
       }
     };
-  };
+  }
+};
   
   Mapnificent.prototype.augmentLeafletHash = function() {
     var mapnificent = this;
