@@ -1,6 +1,8 @@
 # Branch: static-gtfs-subsets
-This branch filters the static schedule data on the frontend. The page loads with local route data only.
 The MVP for a May 13th presentation is available at: <a href="https://sftrembed.firebaseapp.com/">https://sftrembed.firebaseapp.com/</a>
+
+This branch filters the static schedule data on the frontend. The page loads with local route data only.
+
 
 Example:
 
