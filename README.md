@@ -1,9 +1,10 @@
 # Branch: static-gtfs-subsets
-This branch filters the static schedule data on the frontend. The page starts out showing only the walking isochrone. 
+This branch filters the static schedule data on the frontend. The page loads with local route data only.
+The MVP for a May 13th presentation is available at: <a href="https://sftrembed.firebaseapp.com/">https://sftrembed.firebaseapp.com/</a>
 
 Example:
 
-<img src="./20190426C.gif"/>
+<img src="./20190513A.gif"/>
 
 
 The following sections show where code was added/updated and why it was done so:
