@@ -138,13 +138,10 @@ $(function(){
   });
 
     
-    // add local routes to the array
-    let routes = [];
-    window.checkedRoutes = [];
+  // Populate `window.checkRoutes` with an Array of user-selected route IDs
+  let routes = [];
+  window.checkedRoutes = [];
   $('.route-checkbox').change(function(){
-
-    
-
     if ($(this).is(':checked')) {
       routes.push($(this)[0].value);
       window.checkedRoutes = routes;
@@ -154,14 +151,12 @@ $(function(){
       window.checkedRoutes = routes;
     };
     
-    
     mapnificent.prepareData(window.staticData, routes);
     mapnificent.redraw();
     
     mapnificent.positions.forEach(function(pos){
       pos.startCalculation();
-    });
-    
+    });   
   });
 
   // start out with all local routes
