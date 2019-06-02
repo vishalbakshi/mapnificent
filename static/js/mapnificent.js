@@ -480,6 +480,8 @@
       nwlng = Math.min(nwlng, this.stationList[i].lng);
     }
   
+    // Filter the transit data to include only local routes and user-selected rapid routes
+    
     let localRoutes = [
       '14347', '14346', '14345', '14344', '14343', '14323', '14341', '14340',
       '14322', '14321', '14349', '14348', '14303', '14302', '14300', '14307', 
@@ -492,8 +494,8 @@
       '14325', '14370', '14324', '14312', '14320', '14367', '14327', '14369', 
       '14326', '14368', '14318','14288', '14289', '14319'
     ]
+    
     for (i = 0; i < data.Lines.length; i += 1) {
-
       if (!data.Lines[i].LineTimes[0]) { continue; }
 
       if (localRoutes.includes(data.Lines[i].LineId.split("|")[1])) {
@@ -511,9 +513,8 @@
           this.lineNames[data.Lines[i].LineId] = data.Lines[i].Name;
         }
       }
-      
-      
     }
+    
     var b = 0.01;
     this.settings.bounds = [selat - b, nwlat + b, nwlng - b, selng + b];
     this.quadtree = Quadtree.create(
