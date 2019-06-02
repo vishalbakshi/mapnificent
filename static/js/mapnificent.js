@@ -271,8 +271,8 @@
       station = convert(stationsAround[i], stationTime);
       
       if (station !== null) {
-
-        // ADD ARRAY OF ROUTES TO STATION OBJ
+        // If a station has transit routes, add an array of route IDs
+        // as a property to the station object
         let stationRoutes = [];
         stationsAround[i].TravelOptions.forEach(function(stopObject) {
           if (stopObject.Line) stationRoutes.push(stopObject.Line);
