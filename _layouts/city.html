@@ -151,9 +151,13 @@ $(function(){
       window.checkedRoutes = routes;
     };
     
+    // Pass the array of user-selected routes to `prepareData`
+    // to filter station data by route ID
     mapnificent.prepareData(window.staticData, routes);
     mapnificent.redraw();
     
+    // Re-calculate and re-render reachable stations from each selected pin
+    // given user's route selection
     mapnificent.positions.forEach(function(pos){
       pos.startCalculation();
     });   
