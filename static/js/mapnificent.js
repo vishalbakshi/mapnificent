@@ -617,6 +617,8 @@
           ctx.arc(drawStations[j].x, drawStations[j].y,
                   drawStations[j].r, 0, 2 * Math.PI, false);
 
+          // If drawStations[j] does not have routes
+          // it can only be reached by walking
           if (!drawStations[j].routes) {
             ctx.fillStyle = 'rgba(225,225,225,0.1)';
             ctx.fill();
