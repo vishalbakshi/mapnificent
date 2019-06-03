@@ -495,9 +495,13 @@
       '14326', '14368', '14318','14288', '14289', '14319'
     ]
     
+    // Iterate through `data.Lines` and filter only local and user-selected routes
     for (i = 0; i < data.Lines.length; i += 1) {
       if (!data.Lines[i].LineTimes[0]) { continue; }
 
+      // `data.Lines[i].LineId` is a string "Line ID | Route ID"
+      // If the route ID is included in the `localRoutes` array, add it to 
+      // Mapnificent's `lines` Object
       if (localRoutes.includes(data.Lines[i].LineId.split("|")[1])) {
         this.lines[data.Lines[i].LineId] = this.getLineTimesByInterval(data.Lines[i].LineTimes);
   
@@ -506,6 +510,9 @@
         }
       }
   
+      // If user-selected routes Array exists
+      // If user-selected routes includes data.Lines[i] "Route ID"
+      // Add it to Mapnificent's `lines` Object
       if (routes && routes.includes(data.Lines[i].LineId.split("|")[1])) {
         this.lines[data.Lines[i].LineId] = this.getLineTimesByInterval(data.Lines[i].LineTimes);
   
@@ -588,11 +595,22 @@
   
       var stationsAround = self.quadtree.searchInRadius(latlng.lat, latlng.lng, searchRadius);
   
-      ctx.globalCompositeOperation = 'source-over';
-      ctx.fillStyle = 'rgba(225,225,225,0.4)';
+      // Main map is drawn as a source-over composite 
+      var mainMapCompositeOperation = 'source-over';
+      
+      // All arcs are drawn as source-atop composites
+      var arcCompositeOperation = 'source-atop';
+      
+      var mainMapFill = 'rgba(225,225,225,0.4)';
+      var walkingIsochroneFill = 'rgba(225,225,225,0.1)';
+      var localIsochroneFill = 'rgba(50,150,50,0.05)';
+      var rapidIsochroneFill = 'rgba(50,150,50,1.0)';
+      
+      ctx.globalCompositeOperation = mainMapCompositeOperation;
+      ctx.fillStyle = mainMapFill;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
   
-      ctx.globalCompositeOperation = 'source-atop';
+      ctx.globalCompositeOperation = arcCompositeOperation;
       ctx.fillStyle = 'rgba(50,150,50,0.1)';
 
       let localRoutes = [
@@ -608,36 +626,41 @@
         '14326', '14368', '14318','14288', '14289', '14319'
       ];
 
-      
+      // For each position (i.e. pin dropped by user) obtain the reachable stations
+      // based on 30 minute max transit time limit (including walking)
       for (var i = 0; i < self.positions.length; i += 1) {
-        
         var drawStations = self.positions[i].getReachableStations(stationsAround, start, tileSize);
+        
+        // Each reachable station from a position will be drawn on the map.
         for (var j = 0; j < drawStations.length; j += 1) {
           ctx.beginPath();
           ctx.arc(drawStations[j].x, drawStations[j].y,
                   drawStations[j].r, 0, 2 * Math.PI, false);
 
-          // If drawStations[j] does not have routes
-          // it can only be reached by walking
+          // Render all arcs that are walking-only consecutively so that they 
+          // have the same opacity. A station is walking-only if it does not 
+          // have any routes passing through it
           if (!drawStations[j].routes) {
-            ctx.fillStyle = 'rgba(225,225,225,0.1)';
+            ctx.fillStyle = walkingIsochroneFill;
             ctx.fill();
           } else {             
-            // If drawStation[j] is on a local route, assign a different color
+            // Render all arcs that are on local routes consecutively 
+            // so that they have the same opacity
             drawStations[j].routes.forEach(function(stationRoute){
               if (localRoutes.includes(stationRoute.split("|")[1])) {
-                ctx.globalCompositeOperation = 'source-atop';
-                ctx.fillStyle = 'rgba(50,150,50,0.05)';
+                ctx.globalCompositeOperation = arcCompositeOperation;
+                ctx.fillStyle = localIsochroneFill;
                 ctx.fill();
               };
             });
 
             window.checkedRoutes.forEach(function(route) {
-              // If drawStation[j] is only on rapid route, assign different color
+              // Render all arcs that are on rapid routes consecutively so that they 
+              // have the same opacity
               drawStations[j].routes.forEach(function(stationRoute){
                 if (stationRoute.split("|")[1] == route) {
                   ctx.globalCompositeOperation = 'source-atop';
-                  ctx.fillStyle = 'rgba(50,150,50,1.0)';
+                  ctx.fillStyle = rapidIsochroneFill;
                   ctx.fill();
                 };
               }); 
