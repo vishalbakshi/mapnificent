@@ -1,5 +1,56 @@
-# 30x30: Visualizing Rapid Network Service
+# Branch: static-gtfs-subsets
+The MVP for a May 13th presentation is available at: <a href="https://sftrembed.firebaseapp.com/">https://sftrembed.firebaseapp.com/</a>
 
+This branch filters the static schedule data on the frontend. The page loads with local route data only.
+
+
+Example:
+
+<img src="./20190513C.gif"/>
+
+
+The following sections show where code was added/updated and why it was done so:
+
+## city.html
+- <a href="https://github.com/vishalbakshi/mapnificent/blob/static-gtfs-subsets/_layouts/city.html#L31-L40">Lines 31-40 in `#mapnificent-navbar-collapse`</a>
+    
+    - what it does:
+        - creates a list of checkboxes with route labels in the navigation bar at the top
+    - why it was added:
+        - allows users to select different routes 
+- <a href="https://github.com/vishalbakshi/mapnificent/blob/static-gtfs-subsets/_layouts/city.html#L142-L161">Lines 142-161 in the script block</a>
+
+    - what it does:
+        - listens to changes in the checkbox state (checked/unchecked) 
+        - calls `Mapnificent.prepareData` with the loaded data (`window.staticData`) and the array of selected route IDs
+        - calls `startCalculation` on each `MapnificentPosition` object
+    - why it was added:
+        - this filters the data used by the app based on user selections
+        
+## mapnificent.js
+
+- <a href="https://github.com/vishalbakshi/mapnificent/blob/static-gtfs-subsets/static/js/mapnificent.js#L183">Line 183 in the `MapnificentPosition.prototype.startCalculation` definition</a>
+
+    - what it does:
+        - I have called `this.triggerHashUpdate()`, which resets the URL of the map based on the new filtered data.
+    
+    - why it was added:
+        - Without this line, upon clicking a route selection checkbox, the map would automatically move to the top left corner of the screen.
+
+- <a href="https://github.com/vishalbakshi/mapnificent/blob/static-gtfs-subsets/static/js/mapnificent.js#L463-L470">Lines 463-470 in the `Mapnificent.prototype.prepareData` definition</a>
+
+    - what it does:
+        - filters the collection of Lines (routes) based on which checkboxes are selected by the use
+    - why it was added:
+        - In order to view isochrones for specific routes based on user selections
+- <a href="https://github.com/vishalbakshi/mapnificent/blob/static-gtfs-subsets/static/js/mapnificent.js#L304">Line 304 in `Mapnificent.prototype.init` definition</a>
+
+    - what it does:
+        - saves a reference to the loaded data as a global variable
+    - why it was added:
+        - in order to call `prepareData` from the script block in `city.html`
+       
+# 30x30: Visualizing Rapid Network Service
 This is the launchpad for building upon the proof of concept established during the SF DataJAM @ Code For America on Saturday, April 13, 2019.
 
 DataJAM Outcome: <a href="https://docs.google.com/presentation/d/1Pm0a0NYYYtsFItfxuugKelZlJt3Z6Wwoy1wJS2nyM7E/edit?usp=sharing">Google Slides</a>

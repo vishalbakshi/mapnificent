@@ -1,34 +1,37 @@
 body {
-    font-family: "Lucida Grande", Verdana, Arial;
+  font-family: "Lucida Grande", Verdana, Arial;
 }
 
+#routeList {
+list-style: none;
+}
 a, a:visited {
-    color: #333;
+  color: #333;
 }
 
 a:hover, a:active {
-    color: #6cca00;
+  color: #6cca00;
 }
 
 .modal p > a {
-  text-decoration: underline;
+text-decoration: underline;
 }
 
 .navbar-mapnificent {
-  background-color: rgba(255, 255, 255, 0.8);
-  border-color: #fff;
+background-color: rgba(255, 255, 255, 0.8);
+border-color: #fff;
 }
 
 .navbar-mapnificent .navbar-brand {
-    color: #777;
-    text-decoration: none;
-    background: url('../img/mapnificent.png') 0 0 no-repeat;
-    padding: 30px 10px 0px 45px;
-    width: 230px;
+  color: #777;
+  text-decoration: none;
+  background: url('../img/mapnificent.png') 0 0 no-repeat;
+  padding: 30px 10px 0px 45px;
+  width: 230px;
 }
 
 .navbar-mapnificent .city {
-  font-size: 16px;
+font-size: 16px;
 }
 
 @media only screen and (min--moz-device-pixel-ratio: 2),
@@ -36,100 +39,100 @@ only screen and (-o-min-device-pixel-ratio: 2/1),
 only screen and (-webkit-min-device-pixel-ratio: 2),
 only screen and (min-device-pixel-ratio: 2) {
 
-  .navbar-mapnificent .navbar-brand {
-    background-size: 111px 50px;
-    background-image: url('../img/mapnificent-2x.png');
-  }
+.navbar-mapnificent .navbar-brand {
+  background-size: 111px 50px;
+  background-image: url('../img/mapnificent-2x.png');
+}
 }
 
 #mapnificent-map {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 #map {
-  height: 400px;
-  width: 100%;
+height: 400px;
+width: 100%;
 }
 
 a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
-  border-color: #6cca00;
+border-color: #6cca00;
 }
 
 a.thumbnail:hover .caption,
 a.thumbnail:focus .caption,
 a.thumbnail.active .caption {
-  color: #6cca00;
+color: #6cca00;
 }
 
 .index-page {
-  background-color: #F5F5F5;
+background-color: #F5F5F5;
 }
 
 #about-header {
-    color: #444;
-    height: 30px;
-    width: 150px;
-    margin: 0 0 0 20px;
-    text-align: center;
-    background: url('../img/mapnificent.png') 0 0 no-repeat;
-    padding: 30px 10px 0px 10px;
+  color: #444;
+  height: 30px;
+  width: 150px;
+  margin: 0 0 0 20px;
+  text-align: center;
+  background: url('../img/mapnificent.png') 0 0 no-repeat;
+  padding: 30px 10px 0px 10px;
 }
 
 #mapnificent-world {
-    width:5%;
-    padding:10px 0 10px 70px;
-    background: url('../img/world.png') 0 center no-repeat;
+  width:5%;
+  padding:10px 0 10px 70px;
+  background: url('../img/world.png') 0 center no-repeat;
 }
 
 #mapnificent-about {
-    width:5%;
-    padding:10px 0 10px 40px;
-    background: url('../img/info.png') 0 center no-repeat;
+  width:5%;
+  padding:10px 0 10px 40px;
+  background: url('../img/info.png') 0 center no-repeat;
 }
 
 #mapnificent-settings {
-    width:5%;
-    padding:15px 0 10px 40px;
-    background: url('../img/settings.png') 0 center no-repeat;
+  width:5%;
+  padding:15px 0 10px 40px;
+  background: url('../img/settings.png') 0 center no-repeat;
 }
 
 #mapnificent-map .leaflet-top .leaflet-control {
-    margin-top: 60px;
+  margin-top: 60px;
 }
 
 .position-control {
-  padding: 10px 5px;
+padding: 10px 5px;
 }
 
 .position-control .position-remove {
-  cursor: pointer;
+cursor: pointer;
 }
 
 .position-control .position-remove:hover {
-  color: red;
+color: red;
 }
 
 .progress-bar-mapnificent {
-  background-color: #6cca00;
+background-color: #6cca00;
 }
 
 .btn-mapnificent {
-  background-color: #6cca00;
-  color: #fff !important;
-  border-color: #6cca00;
+background-color: #6cca00;
+color: #fff !important;
+border-color: #6cca00;
 }
 
 .btn-mapnificent:hover, .btn-mapnificent:focus, .btn-mapnificent:active, .btn-mapnificent.active, .open>.dropdown-toggle.btn-mapnificent {
-  color: #fff;
-  background-color: #77DB03;
-  border-color: #6cca00;
+color: #fff;
+background-color: #77DB03;
+border-color: #6cca00;
 }
 
 .footer {
-  margin: 3em 0;
+margin: 3em 0;
 }
 
 .leaflet-popup-content h2 a {
-  text-decoration: underline;
+text-decoration: underline;
 }
