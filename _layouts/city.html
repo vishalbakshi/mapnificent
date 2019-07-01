@@ -26,9 +26,45 @@ layout: base
           <a data-toggle="modal" href="#about">About</a>
         </li>
         <li>
-          <a href="{{ site.baseurl }}/">More Cities</a>
+          <a href="{{ site.baseurl }}/">Home</a>
         </li>
-      </ul>
+        <li>
+          <p class="navbar-text">
+            Rapid Routes:
+          </p>
+        </li>
+        <li>
+          <div class="navbar-text">
+              <input type="checkbox" value="14293" name="5R" class="route-checkbox"/>
+              <label for="5R">5R</label>
+          </div>
+        </li>
+        <li>
+          <div class="navbar-text">
+            <input type="checkbox" value="14301" name="9R" class="route-checkbox"/>
+            <label for="9R">9R</label>
+          </div>
+        </li>
+        <li>
+          <div class="navbar-text">
+              <input type="checkbox" value="14316" name="28R" class="route-checkbox"/>
+              <label for="28R">28R</label>
+          </div>
+        </li>
+        <li>
+          <div class="navbar-text">
+              <input type="checkbox" value="14305" name="14R" class="route-checkbox"/>
+              <label for="14R">14R</label>
+          </div>
+        </li>
+        <li>
+          <div class="navbar-text">
+              <input type="checkbox" value="14330" name="38R" class="route-checkbox"/>
+              <label for="38R">38R</label>
+          </div>
+        </li>
+      </ul>     
+      
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Info <b class="caret"></b></a>
@@ -125,6 +161,32 @@ $(function(){
 
   var mapnificent = new Mapnificent(map, city, {
     baseurl: '{{ site.baseurl }}/'
+  });
+
+    
+  // Populate `window.checkRoutes` with an Array of user-selected route IDs
+  let routes = [];
+  window.checkedRoutes = [];
+  $('.route-checkbox').change(function(){
+    if ($(this).is(':checked')) {
+      routes.push($(this)[0].value);
+      window.checkedRoutes = routes;
+    } else {
+      let routeIdx = routes.indexOf($(this)[0].value);
+      routes.splice(routeIdx,1);
+      window.checkedRoutes = routes;
+    };
+    
+    // Pass the array of user-selected routes to `prepareData`
+    // to filter station data by route ID
+    mapnificent.prepareData(window.staticData, routes);
+    mapnificent.redraw();
+    
+    // Re-calculate and re-render reachable stations from each selected pin
+    // given user's route selection
+    mapnificent.positions.forEach(function(pos){
+      pos.startCalculation();
+    });   
   });
 
   mapnificent.init();

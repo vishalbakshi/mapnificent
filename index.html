@@ -6,15 +6,19 @@ layout: base
   <div class="container">
     <div class="jumbotron index-page">
       <h1>
-        <img src="{{ site.baseurl }}/static/img/mapnificent_big.png" alt="Mapnificent" class="img-responsive">
+        <img src="{{ site.baseurl }}/static/img/sftr_logo.png" alt="San Francisco Transit Riders" class="img-responsive">
       </h1>
-      <p>
-        Shows you areas you can reach with public transport in a given time.
+      <p class="light-text">
+        Shows you areas you can reach with San Francisco public transport in 30 minutes.
       </p>
       <p>
-        <a href="#map" class="btn btn-mapnificent btn-lg smooth-scroll" role="button">
-          See all the cities
-        </a>
+      
+        <!-- commented out `See all the cities` for sftr embed
+          <a href="#map" class="btn btn-mapnificent btn-lg smooth-scroll" role="button">
+            See all the cities
+          </a> 
+        -->
+        
         <a href="#about" data-toggle="modal" class="btn btn-default btn-lg" role="button">
           About
         </a>
@@ -23,11 +27,12 @@ layout: base
   </div>
 </div>
 
-<div id="map"></div>
+<!-- map commented out for sftr embed -->
+<!-- <div id="map"></div> -->
 
 <div class="container">
   <div id="list">
-    <h3>All Mapnificent Cities</h3>
+    <h3>Transit Data Visualizations</h3>
     <div class="row">
       {% for city in site.cities %}
         {% unless city.hidden %}
@@ -48,11 +53,15 @@ layout: base
 
 {% include about.html %}
 
+<!-- remove footer as this information is in the About page 
 <footer class="footer">
   <div class="container">
-    <a href="http://stefanwehrmeyer.com/#impressum">Impressum</a>
+    <p>This project was originally forked from <a href="https://github.com/mapnificent/mapnificent">Mapnificent</a></p>
+    <p>Managed by: <a href="http://stefanwehrmeyer.com/#impressum">Impressum</a></p>
   </div>
 </footer>
+-->
+
 
 <script src="{{ site.baseurl }}/static/vendor/leaflet/dist/leaflet.js" type="text/javascript" charset="utf-8"></script>
 
