@@ -2,6 +2,19 @@ body {
   font-family: "Lucida Grande", Verdana, Arial;
 }
 
+.img-about {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-text-dark {
+  color: black;
+}
+.light-text {
+  color: white;
+}
 #routeList {
 list-style: none;
 }
@@ -25,9 +38,8 @@ border-color: #fff;
 .navbar-mapnificent .navbar-brand {
   color: #777;
   text-decoration: none;
-  background: url('../img/mapnificent.png') 0 0 no-repeat;
-  padding: 30px 10px 0px 45px;
-  width: 230px;
+  background: url('../img/sftr_logo.png') 0 0 no-repeat;
+
 }
 
 .navbar-mapnificent .city {
@@ -41,7 +53,7 @@ only screen and (min-device-pixel-ratio: 2) {
 
 .navbar-mapnificent .navbar-brand {
   background-size: 111px 50px;
-  background-image: url('../img/mapnificent-2x.png');
+  background-image: url('../img/sftr_logo.png');
 }
 }
 
@@ -66,7 +78,7 @@ color: #6cca00;
 }
 
 .index-page {
-background-color: #F5F5F5;
+background-color: black;
 }
 
 #about-header {
@@ -75,7 +87,7 @@ background-color: #F5F5F5;
   width: 150px;
   margin: 0 0 0 20px;
   text-align: center;
-  background: url('../img/mapnificent.png') 0 0 no-repeat;
+  background: url('../img/sftr_logo.png') 0 0 no-repeat;
   padding: 30px 10px 0px 10px;
 }
 
@@ -130,7 +142,8 @@ border-color: #6cca00;
 }
 
 .footer {
-margin: 3em 0;
+  margin: 7em 0;
+  background-color: black;
 }
 
 .leaflet-popup-content h2 a {
