@@ -50,7 +50,8 @@ layout: base
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
+<div id="qunit"></div>
+<div id="qunit-fixture"></div>
 <div id="mapnificent-map"></div>
 
 {% include tos.html %}
@@ -102,6 +103,7 @@ layout: base
 <script src="{{ site.baseurl }}/static/js/quadtree.js" type="text/javascript" charset="utf-8"></script>
 <script src="{{ site.baseurl }}/static/js/mapnificent.js" type="text/javascript" charset="utf-8"></script>
 
+<script src="https://code.jquery.com/qunit/qunit-2.9.2.js"></script>
 <script>
 
 $(function(){
@@ -198,4 +200,13 @@ $(function(){
   mapnificent.init();
 });
 
+</script>
+<script>
+  QUnit.test("User selected routes are included in `window.checkedRoutes` Array", function (assert) {
+    let routeCheckboxes = document.getElementsByClassName('route-checkbox')
+    for (let input of routeCheckboxes) {
+      input.click()
+      assert.ok(window.userSelectedRoutes.includes(input.value), input.value)
+    }
+  })
 </script>

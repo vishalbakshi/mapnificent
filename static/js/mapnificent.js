@@ -465,7 +465,7 @@
     return result;
   }
   
-  Mapnificent.prototype.prepareData = function(data, routes) {
+  Mapnificent.prototype.prepareData = function(data) {
     this.stationList = data.Stops;
     this.lines = {};
     this.lineNames = {};
@@ -513,7 +513,7 @@
       // If user-selected routes Array exists
       // If user-selected routes includes data.Lines[i] "Route ID"
       // Add it to Mapnificent's `lines` Object
-      if (routes && routes.includes(data.Lines[i].LineId.split("|")[1])) {
+      if (window.userSelectedRoutes && window.userSelectedRoutes.includes(data.Lines[i].LineId.split("|")[1])) {
         this.lines[data.Lines[i].LineId] = this.getLineTimesByInterval(data.Lines[i].LineTimes);
   
         if (this.settings.debug) {
@@ -601,18 +601,21 @@
       // All arcs are drawn as source-atop composites
       var arcCompositeOperation = 'source-atop';
       
+      // Isochrones will be shaded a different color based on the route type
       var mainMapFill = 'rgba(225,225,225,0.4)';
       var walkingIsochroneFill = 'rgba(225,225,225,0.1)';
       var localIsochroneFill = 'rgba(50,150,50,0.05)';
       var rapidIsochroneFill = 'rgba(50,150,50,1.0)';
       
+      // Render the fill over the entire map
       ctx.globalCompositeOperation = mainMapCompositeOperation;
       ctx.fillStyle = mainMapFill;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
   
+      // Render fill for isochone arcs at each reachable station
       ctx.globalCompositeOperation = arcCompositeOperation;
-      ctx.fillStyle = 'rgba(50,150,50,0.1)';
 
+      // Route IDs for SFMTA MUNI Local routes for filtering purposes
       let localRoutes = [
         '14347', '14346', '14345', '14344', '14343', '14323', '14341', '14340',
         '14322', '14321', '14349', '14348', '14303', '14302', '14300', '14307', 
@@ -637,38 +640,29 @@
           ctx.arc(drawStations[j].x, drawStations[j].y,
                   drawStations[j].r, 0, 2 * Math.PI, false);
 
-          // Render all arcs that are walking-only consecutively so that they 
-          // have the same opacity. A station is walking-only if it does not 
-          // have any routes passing through it
+          // Render all arcs that are walking-only with set color
+          // A station is walking-only if it does not have any routes passing through it
           if (!drawStations[j].routes) {
             ctx.fillStyle = walkingIsochroneFill;
             ctx.fill();
           } else {             
-            // Render all arcs that are on local routes consecutively 
-            // so that they have the same opacity
+            // Fill local route isochrone arcs and rapid route isochrones with set colors
             drawStations[j].routes.forEach(function(stationRoute){
               if (localRoutes.includes(stationRoute.split("|")[1])) {
-                ctx.globalCompositeOperation = arcCompositeOperation;
                 ctx.fillStyle = localIsochroneFill;
                 ctx.fill();
               };
-            });
 
-            window.checkedRoutes.forEach(function(route) {
-              // Render all arcs that are on rapid routes consecutively so that they 
-              // have the same opacity
-              drawStations[j].routes.forEach(function(stationRoute){
-                if (stationRoute.split("|")[1] == route) {
-                  ctx.globalCompositeOperation = 'source-atop';
-                  ctx.fillStyle = rapidIsochroneFill;
-                  ctx.fill();
-                };
-              }); 
-            }); 
+              if (window.userSelectedRoutes.includes(stationRoute.split("|")[1])) {
+                ctx.fillStyle = rapidIsochroneFill;
+                ctx.fill();
+              }
+            });
           }
           
       }
     };
+  
   }
 };
   

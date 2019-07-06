@@ -12,7 +12,8 @@ defaults:
 collections:
   cities:
     output: true
-    permalink: /:path/
+    permalink: "/:path/"
+  
 
 
 plugins:
